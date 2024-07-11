@@ -9,18 +9,18 @@ void solve(){
     int n;
     cin>>n;
     int ans = 0;
-    vector<int> arr(n), di(n);
-    for(int i=0; i<n; i++){ cin>>arr[i]; cin>>di[i]; }
-    sort(arr.begin(), arr.end());
-    sort(di.begin(), di.end());
-    int i=0, j=0, cur=0;
-    while(i<n and j<n){
-        if(arr[i] < di[j]){
-            cur++;
-            i++;
-            ans = max(ans, cur);
-        }else{
-            j++; cur--;
+    vector<pair<int, int>> v(n);
+    for(int i=0; i<n; i++){
+        cin>>v[i].first>>v[i].second;
+    }
+    sort(v.begin(), v.end(), [](pair<int, int> a, pair<int, int> b){
+        return a.second < b.second;
+    });
+    int prev = 0;
+    for(auto it: v){
+        if(prev <= it.first){
+            prev = it.second;
+            ans++;  
         }
     }
     cout<<ans<<endl;
