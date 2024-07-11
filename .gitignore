@@ -1,1 +1,3 @@
-./Introctory/.cph
+*.exe
+.cph
+.vscode
