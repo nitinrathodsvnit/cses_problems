@@ -13,8 +13,7 @@ void solve()
     for(int i=0; i<n; i++){
         int tm; cin>>tm;
         sum+=tm;
-        int mod = sum%n;
-        if(sum<0) mod = ((sum%n)+n)%n;
+        int mod = ((sum%n)+n)%n;
         if(mp.find(mod)!=mp.end()){
             ans+=(mp[mod]);
         }
